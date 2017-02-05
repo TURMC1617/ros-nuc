@@ -1,0 +1,7 @@
+/home/swilso421/ros-nuc/build/CMakeFiles/clean_test_results.dir
+/home/swilso421/ros-nuc/build/CMakeFiles/download_extra_data.dir
+/home/swilso421/ros-nuc/build/CMakeFiles/doxygen.dir
+/home/swilso421/ros-nuc/build/gtest/CMakeFiles/gtest.dir
+/home/swilso421/ros-nuc/build/gtest/CMakeFiles/gtest_main.dir
+/home/swilso421/ros-nuc/build/CMakeFiles/run_tests.dir
+/home/swilso421/ros-nuc/build/CMakeFiles/tests.dir
