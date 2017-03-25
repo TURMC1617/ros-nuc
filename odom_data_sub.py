@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#import roslib; roslib.load_manifest('Phoebe')
+#Will eventually turn into the movement planning node
 import rospy
 
 from nav_msgs.msg import Odometry
@@ -19,6 +19,13 @@ def Position(odom_data):
     counter= counter+1
     print counter, curr_time
     print pose
+
+def setGoal():
+    #set goal location [X,Y]
+
+
+def sendVelocity():
+    #send velocities into the pi based off of current pose and its distance away from goal
 
 
 
