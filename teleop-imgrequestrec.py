@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import pygame as pyg
+
 import cv2
 from socket import *
 from time import sleep
@@ -8,12 +8,16 @@ from time import sleep
 #target Main base computer information
 targetIP = '192.168.1.100'
 
-port = 15000
+port_recv = 15000
+port_send = 16000
 serverAddress = (targetIP, port)
 
 #recieving port on Nuc
 serverSocket = socket(AF_INET, SOCK_DGRAM)
-serverSocket.bind(('', port))
+serverSocket.bind(('', port_recv))
+
+sendingSocket = socket(AF_INET,SOCK_DGRAM)
+sendingSocket.bind(('',port_send))
 
 
 
@@ -33,10 +37,10 @@ def sendimg():
     cam1_imgsize = cam1_img.total() * cam1_img.elemSize();
     cam2_imgsize = cam2_img.total() * cam2_img.elemSize();
 
-    bytes1 = send(serverSocket, cam1_img.data, cam1_imgsize, 0)
+    bytes1 = send(sendingSocket, cam1_img.data, cam1_imgsize, 0)
     #delay before sending second picture, depends on latency of connection
     sleep(100)
-    bytes2 = send(serverSocket, cam2_img.data, cam2_imgsize,0)
+    bytes2 = send(sendingSocket, cam2_img.data, cam2_imgsize,0)
     
     #Try this method if above doesn't work
     #serverSocket.sendto(cam1_img.data, serverAddress)
@@ -50,7 +54,7 @@ def sendimg():
 while True:
     message, address = serverSocket.recvfrom(1024)
 
-    if message = "img":
+    if message == "img":
         sendimg()
 
 
