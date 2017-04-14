@@ -2,6 +2,7 @@ from JoystickListener import JoystickListener
 import cv2
 from socket import *
 from time import sleep
+import numpy as np
 
 targetIP = '192.168.1.103'
 
@@ -12,11 +13,23 @@ sendingSocket = socket(AF_INET, SOCK_DGRAM)
 
 def my_func(data):
     if data['button11'] == 1.0:
+	print("Button 11 was pushed")
         cam1 = cv2.VideoCapture(0)
         ret1, cam1_img = cam1.read()
+
+	print len(cam1_img)
+	cam1_img = cv2.resize(cam1_img,None,fx=0.2,fy=0.2,interpolation = cv2.INTER_LANCZOS4)
+	cam1_img = cv2.cvtColor(cam1_img, cv2.COLOR_BGR2GRAY)
+	print len(cam1_img)
+	print cam1_img.shape
+	frame = cam1_img.flatten()
+	print frame.shape
+	data = frame.tostring()
+	#img_str = cv2.imencode('.jpg', cam1_img)[1].tostring()
+	#print len(img_str)
         #maybe try grab and send that tuple over, base would then run retieve() on it?
         #cam1_img = cam1_img.reshape(0,1)
-        sendingSocket.sendto(cam1_img, serverAddress)
+        sendingSocket.sendto(data, serverAddress)
 
 
 def main():
