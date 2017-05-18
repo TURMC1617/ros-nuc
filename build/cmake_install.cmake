@@ -117,7 +117,15 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   INCLUDE("/home/templerobotics/ros-nuc/build/gtest/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/image_pipeline/cmake_install.cmake")
   INCLUDE("/home/templerobotics/ros-nuc/build/robot/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/camera_calibration/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/image_publisher/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/image_view/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/image_proc/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/stereo_image_proc/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/depth_image_proc/cmake_install.cmake")
+  INCLUDE("/home/templerobotics/ros-nuc/build/image_pipeline/image_rotate/cmake_install.cmake")
   INCLUDE("/home/templerobotics/ros-nuc/build/robot_localization/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)

@@ -7,4 +7,11 @@
 # new environment variables
 
 # modified environment variables
+export CMAKE_PREFIX_PATH="/home/templerobotics/ros-nuc/devel:$CMAKE_PREFIX_PATH"
+export CPATH="/home/templerobotics/ros-nuc/devel/include:$CPATH"
+export LD_LIBRARY_PATH="/home/templerobotics/ros-nuc/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/templerobotics/ros-nuc/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/templerobotics/ros-nuc/build"
+export PYTHONPATH="/home/templerobotics/ros-nuc/devel/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/templerobotics/ros-nuc/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/templerobotics/ros-nuc/src:$ROS_PACKAGE_PATH"
