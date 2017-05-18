@@ -1,0 +1,8 @@
+prefix=/home/templerobotics/ros-nuc/devel
+
+Name: stereo_image_proc
+Description: Description of stereo_image_proc
+Version: 1.12.20
+Cflags: -I/home/templerobotics/ros-nuc/devel/include -I/home/templerobotics/ros-nuc/src/image_pipeline/stereo_image_proc/include
+Libs: -L/home/templerobotics/ros-nuc/devel/lib -lstereo_image_proc
+Requires: image_geometry image_proc sensor_msgs stereo_msgs

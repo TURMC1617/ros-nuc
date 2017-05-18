@@ -1,0 +1,8 @@
+prefix=/home/templerobotics/ros-nuc/install
+
+Name: image_publisher
+Description: Description of image_publisher
+Version: 1.12.20
+Cflags: -I/home/templerobotics/ros-nuc/install/include
+Libs: -L/home/templerobotics/ros-nuc/install/lib 
+Requires: 

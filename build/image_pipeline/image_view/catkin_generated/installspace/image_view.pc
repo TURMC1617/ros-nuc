@@ -1,0 +1,8 @@
+prefix=/home/templerobotics/ros-nuc/install
+
+Name: image_view
+Description: Description of image_view
+Version: 1.12.20
+Cflags: -I/home/templerobotics/ros-nuc/install/include
+Libs: -L/home/templerobotics/ros-nuc/install/lib 
+Requires: dynamic_reconfigure

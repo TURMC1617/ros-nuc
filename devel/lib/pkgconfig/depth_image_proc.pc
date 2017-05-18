@@ -1,0 +1,8 @@
+prefix=/home/templerobotics/ros-nuc/devel
+
+Name: depth_image_proc
+Description: Description of depth_image_proc
+Version: 1.12.20
+Cflags: -I/home/templerobotics/ros-nuc/src/image_pipeline/depth_image_proc/include
+Libs: -L/home/templerobotics/ros-nuc/devel/lib -ldepth_image_proc
+Requires: 

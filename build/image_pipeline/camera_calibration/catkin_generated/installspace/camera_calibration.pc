@@ -1,0 +1,8 @@
+prefix=/home/templerobotics/ros-nuc/install
+
+Name: camera_calibration
+Description: Description of camera_calibration
+Version: 1.12.20
+Cflags: 
+Libs: -L/home/templerobotics/ros-nuc/install/lib 
+Requires: 

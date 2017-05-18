@@ -1,0 +1,8 @@
+prefix=/home/templerobotics/ros-nuc/install
+
+Name: image_rotate
+Description: Description of image_rotate
+Version: 1.12.20
+Cflags: -I/home/templerobotics/ros-nuc/install/include
+Libs: -L/home/templerobotics/ros-nuc/install/lib 
+Requires: 
