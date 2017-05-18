@@ -3,7 +3,7 @@
 import rospy as rp
 from sensor_msgs.msg import Image
 from turmc.global_constants import IMAGE_PUBLISH_FREQUENCY
-from turmc.vision.cameras import Bill
+from turmc.vision.cameras import Ted
 from turmc.vision.utils import Mat2ImgMsg
 
 #Initializes objects used in this publisher
@@ -12,7 +12,7 @@ def init():
     global bill, billPub, rate
 
     #Initialize the camera
-    bill = Bill()
+    bill = Ted()
 
     #Initialize the publisher
     billPub = rp.Publisher('images/Bill', Image, queue_size = 5)
