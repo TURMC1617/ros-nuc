@@ -1,2 +1,0 @@
-
--DCATKIN_DEVEL_PREFIX=/home/swilso421/ros-nuc/devel -DCMAKE_INSTALL_PREFIX=/home/swilso421/ros-nuc/install -G Unix Makefiles
