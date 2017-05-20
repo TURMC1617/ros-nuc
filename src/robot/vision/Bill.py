@@ -2,7 +2,7 @@
 
 import rospy as rp
 from sensor_msgs.msg import Image
-from turmc.global_constants import IMAGE_PUBLISH_FREQUENCY
+from turmc.global_constants import IMAGE_PUBLISH_FREQUENCY, TOPIC_BILL_IMAGES
 from turmc.vision.cameras import Bill
 from turmc.vision.utils import Mat2ImgMsg
 
@@ -15,7 +15,7 @@ def init():
     bill = Bill()
 
     #Initialize the publisher
-    billPub = rp.Publisher('images/Bill', Image, queue_size = 5)
+    billPub = rp.Publisher(TOPIC_BILL_IMAGES, Image, queue_size = 5)
 
     #Initialize the node
     rp.init_node('Bill', anonymous = True)

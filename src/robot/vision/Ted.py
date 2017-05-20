@@ -3,8 +3,9 @@
 import rospy as rp
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
+from turmc.global_constants import *
 from turmc.motor_control.camera_stepper import CameraStepper
-from turmc.tools.textutils import String2Dictionary as Str2Dict
+from turmc.tools.textutils import unpackDict
 from turmc.vision.cameras import Ted
 from turmc.vision.utils import Mat2ImgMsg
 from turmc.vision.advanced_utils import BeaconTracking2017 as BeaconTracking
@@ -27,7 +28,7 @@ def locateBeacon(color):
 
 def callback(data):
     #Get a dictionary of commands from the string
-    commands = Str2Dict(data.data)
+    commands = unpackDict(data.data)
 
     #A single message could carry up to one copy of each command
     for command in commands:
@@ -49,8 +50,8 @@ def init():
     ted = Ted()
 
     #Initialize the publishers
-    tedPub = rp.Publisher('images/Ted', Image, queue_size = 5)
-    dataPub = rp.Publisher('data/beacontracking', String, queue_size = 3)
+    tedPub = rp.Publisher(TOPIC_TED_IMAGES, Image, queue_size = 5)
+    dataPub = rp.Publisher(TOPIC_BEACON_TRACKING, String, queue_size = 3)
 
     #Initialize the node
     rp.init_node('Ted', anonymous = True)
@@ -59,7 +60,7 @@ def init():
     rp.on_shutdown(shutdown)
 
     #Initialize the subscriber
-    tedSub = rp.Subscriber('hardware/Ted', String, callback)
+    tedSub = rp.Subscriber(TOPIC_TED_STEPPER, String, callback)
 
 #Safely cleans up the camera object
 def shutdown():

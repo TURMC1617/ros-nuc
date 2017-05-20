@@ -2,7 +2,7 @@
 
 import rospy as rp
 from sensor_msgs.msg import Image
-from turmc.global_constants import IMAGE_PUBLISH_FREQUENCY
+from turmc.global_constants import IMAGE_PUBLISH_FREQUENCY, TOPIC_USELESS_IMAGES
 from turmc.vision.cameras import Useless
 from turmc.vision.utils import Mat2ImgMsg
 
@@ -15,7 +15,7 @@ def init():
     useless = Useless()
 
     #Initialize the publisher
-    uselessPub = rp.Publisher('images/Useless', Image, queue_size = 5)
+    uselessPub = rp.Publisher(TOPIC_USELESS_IMAGES, Image, queue_size = 5)
 
     #Initialize the node
     rp.init_node('Useless', anonymous = True)
@@ -34,7 +34,7 @@ def main():
 
     #Publishing loop
     while not rp.is_shutdown():
-        uselessPub.publish(Mat2ImgMsg(useless.getImage()))
+        uselessPub.publish(Mat2ImgMsg(useless._getRawImage()))
         rate.sleep()
 
     #Cleanup
