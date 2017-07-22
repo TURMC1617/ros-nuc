@@ -15,43 +15,42 @@
 . /etc/rc.d/init.d/functions
 
 # pull in sysconfig settings
-[ -f /etc/sysconfig/mySystem ] && . /etc/sysconfig/mySystem	(2)
+[ -f /etc/sysconfig/mySystem ] && . /etc/sysconfig/mySystem
 
 RETVAL=0
 prog="MySystem"
 .
-.	(3)
+.	
 .
 
-start() {	(4)
+start() {	
 	echo -n $"Starting $prog:"
-	.
-	.	(5)
-	.
+	
+		
+	
 	RETVAL=$?
 	[ "$RETVAL" = 0 ] && touch /var/lock/subsys/$prog
 	echo
 }
 
-stop() {	(6)
+stop() {	
 	echo -n $"Stopping $prog:"
-	.
-	.	(7)
-	.
+	
+		
+	
 	killproc $prog -TERM
 	RETVAL=$?
 	[ "$RETVAL" = 0 ] && rm -f /var/lock/subsys/$prog
 	echo
 }
-
-reload() {	(8)
+reload() {	
 	echo -n $"Reloading $prog:"
 	killproc $prog -HUP
 	RETVAL=$?
 	echo
 }
 
-case "$1" in	(9)
+case "$1" in
 	start)
 		start
 		;;
@@ -77,7 +76,7 @@ case "$1" in	(9)
 		status $prog
 		RETVAL=$?
 		;;
-	*)	(10)
+	*)	
 		echo $"Usage: $0 {start|stop|restart|reload|condrestart|status}"
 		RETVAL=1
 esac
